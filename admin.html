@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Portal • Queen of Hearts Gameroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body data-page="admin">
+  <header class="site-header">
+    <div class="logo">
+      <div class="logo-mark" aria-hidden="true">❤</div>
+      <div class="logo-text">
+        <span class="logo-title">Queen of Hearts</span>
+        <span class="logo-subtitle">Gameroom</span>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="player.html">Player portal</a>
+    </nav>
+    <div class="header-cta">
+      <span class="badge">Admin</span>
+    </div>
+  </header>
+
+  <main class="stacked">
+    <section class="section-grid">
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Players</p>
+            <h3>Overview</h3>
+          </div>
+          <span class="badge neutral" id="player-count">0 players</span>
+        </header>
+        <div class="table" id="admin-players"></div>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Create player</p>
+            <h3>Add new account</h3>
+          </div>
+          <span class="badge neutral">New</span>
+        </header>
+        <form id="admin-create-player" class="stack">
+          <label>Display name<input type="text" name="name" placeholder="Queen Bee" required /></label>
+          <label>Email<input type="email" name="email" placeholder="player@example.com" required /></label>
+          <button type="submit" class="btn">Create player</button>
+        </form>
+      </article>
+    </section>
+
+    <section class="section-grid">
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Game accounts</p>
+            <h3>Assign usernames</h3>
+          </div>
+          <span class="badge neutral">Per player</span>
+        </header>
+        <form id="game-account-form" class="stack">
+          <label>Player<select name="player" id="game-player"></select></label>
+          <label>Game name<input type="text" name="game" placeholder="Ultra Panda" required /></label>
+          <label>Username<input type="text" name="username" placeholder="Player123" required /></label>
+          <button type="submit" class="btn">Add game account</button>
+        </form>
+        <div class="hint">Creates a game slot for the selected player with its own balance.</div>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Pending transfers</p>
+            <h3>Approve and credit</h3>
+          </div>
+          <span class="badge neutral" id="pending-count">0 pending</span>
+        </header>
+        <div class="table" id="admin-transfers"></div>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Demo</p>
+            <h3>Reset sample data</h3>
+          </div>
+          <span class="badge neutral">Helper</span>
+        </header>
+        <p class="muted">Reload the sample players, wallets, game usernames, and transfers so everything is ready to test.</p>
+        <button class="btn" id="admin-reset" type="button">Reset to demo</button>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true">❤</div>
+        <div class="logo-text">
+          <span class="logo-title">Queen of Hearts</span>
+          <span class="logo-subtitle">Gameroom</span>
+        </div>
+      </div>
+      <p class="muted">Admin view to create players, assign game usernames, and approve wallet transfers.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="player.html">Player portal</a>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Player Portal • Queen of Hearts Gameroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body data-page="player">
+  <header class="site-header">
+    <div class="logo">
+      <div class="logo-mark" aria-hidden="true">❤</div>
+      <div class="logo-text">
+        <span class="logo-title">Queen of Hearts</span>
+        <span class="logo-subtitle">Gameroom</span>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+    </nav>
+    <div class="header-cta">
+      <span class="badge" id="active-player-label">Guest</span>
+    </div>
+  </header>
+
+  <main class="stacked">
+    <section class="section-grid">
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Log in</p>
+            <h3>Pick your player</h3>
+          </div>
+          <span class="badge neutral">Saved</span>
+        </header>
+        <div class="stack">
+          <label class="inline-label">
+            Select player
+            <select id="player-login"></select>
+          </label>
+          <div class="hint">Choose an existing player or create a new one below.</div>
+        </div>
+      </article>
+
+      <article class="card" id="signup">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Create player</p>
+            <h3>Sign up with email</h3>
+          </div>
+          <span class="badge neutral">New</span>
+        </header>
+        <form id="signup-form" class="stack">
+          <label>Display name<input type="text" name="name" placeholder="Lucky Star" required /></label>
+          <label>Email<input type="email" name="email" placeholder="you@example.com" required /></label>
+          <button type="submit" class="btn">Create player</button>
+        </form>
+        <div class="hint">Adds a wallet and history that stay on this device.</div>
+      </article>
+
+      <article class="card highlight">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Wallet</p>
+            <h3 id="wallet-owner">Wallet balance</h3>
+          </div>
+          <span class="badge" id="wallet-balance">$0</span>
+        </header>
+        <form id="deposit-form" class="stack">
+          <label>Amount<input type="number" name="amount" min="1" step="1" value="50" required /></label>
+          <label>Payment method
+            <select name="method">
+              <option value="tierlock">Tierlock</option>
+              <option value="bitcoin">Bitcoin</option>
+              <option value="cashapp">Cash App</option>
+              <option value="card">Credit / Debit Card</option>
+            </select>
+          </label>
+          <button type="submit" class="btn">Add credits</button>
+        </form>
+        <div class="hint">Credits post to your wallet immediately.</div>
+      </article>
+    </section>
+
+    <section class="section-grid">
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Game accounts</p>
+            <h3>Your game usernames</h3>
+          </div>
+          <span class="badge">Auto</span>
+        </header>
+        <div id="game-accounts" class="game-grid"></div>
+        <div class="hint">Create Ultra Panda and other game accounts yourself with instant usernames.</div>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Create game login</p>
+            <h3>Instant platform setup</h3>
+          </div>
+          <span class="badge">Automatic</span>
+        </header>
+        <form id="create-game-form" class="stack">
+          <label>Platform
+            <select name="game" id="new-game-name">
+              <option value="Ultra Panda">Ultra Panda</option>
+              <option value="Fire Kirin">Fire Kirin</option>
+              <option value="Dragon Master">Dragon Master</option>
+              <option value="Ocean King">Ocean King</option>
+            </select>
+          </label>
+          <label>Username
+            <input type="text" name="username" id="new-game-username" placeholder="auto-suggested" />
+          </label>
+          <button type="submit" class="btn">Create game account</button>
+        </form>
+        <div class="hint">Adds the game login immediately and links it to your wallet.</div>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Transfer request</p>
+            <h3>Move wallet credits</h3>
+          </div>
+          <span class="badge">Instant</span>
+        </header>
+        <form id="transfer-request" class="stack">
+          <label>Game account<select name="game" id="transfer-game"></select></label>
+          <label>Amount<input type="number" name="amount" min="1" step="1" value="10" required /></label>
+          <button type="submit" class="btn">Submit transfer</button>
+        </form>
+        <div class="hint">Transfers post to your selected game account right away.</div>
+      </article>
+    </section>
+
+    <section class="section-grid">
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Activity</p>
+            <h3>Wallet and game history</h3>
+          </div>
+          <span class="badge neutral">Live</span>
+        </header>
+        <ul class="activity" id="player-activity"></ul>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Transfer status</p>
+            <h3>Pending & approved</h3>
+          </div>
+          <span class="badge neutral">Queue</span>
+        </header>
+        <div class="table" id="player-transfers"></div>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow">Device data</p>
+            <h3>Reload demo setup</h3>
+          </div>
+          <span class="badge neutral">Helper</span>
+        </header>
+        <p class="muted">Reset local data to the ready-to-use demo state with sample players, wallets, games, and transfers.</p>
+        <button class="btn" id="player-reset" type="button">Reload demo data</button>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true">❤</div>
+        <div class="logo-text">
+          <span class="logo-title">Queen of Hearts</span>
+          <span class="logo-subtitle">Gameroom</span>
+        </div>
+      </div>
+      <p class="muted">Player view for wallets, deposits, game access, and transfer requests.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
